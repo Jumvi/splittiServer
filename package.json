@@ -1,0 +1,40 @@
+{
+  "name": "serversplitti",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc"
+  },
+  "author": "Jumvi",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jumvi/splittiServer.git"
+  },
+  "keywords": [
+    "kerenemvi95"
+  ],
+  "bugs": {
+    "url": "https://github.com/Jumvi/splittiServer/issues"
+  },
+  "homepage": "https://github.com/Jumvi/splittiServer#readme",
+  "description": "",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/twilio": "^3.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "twilio": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

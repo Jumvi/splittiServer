@@ -1,0 +1,18 @@
+{
+  "client": {
+    "nom": "da",
+    "prenom": "ju",
+    "telephone": "+243818379907",
+    "whatsapp": "+243818379907",
+    "adresse": "av ndjili",
+    "ville": "Kinshasa",
+    "commune": "Ndjili"
+  },
+  "commande": {
+    "description": "Test de commande",
+    "mode": "Livraison",
+    "commentaire": "Première commande test"
+  },
+  "date": "2025-01-31T22:37:16+01:00",
+  "status": "en_attente"
+}
