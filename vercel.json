@@ -2,8 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
-  ]
+  ],
+  "env": {
+    "TWILIO_ACCOUNT_SID": "@twilio_account_sid",
+    "TWILIO_AUTH_TOKEN": "@twilio_auth_token",
+    "TWILIO_WHATSAPP_NUMBER": "@twilio_whatsapp_number",
+    "ADMIN_WHATSAPP_NUMBER": "@admin_whatsapp_number",
+    "TEST_MODE": "true"
+  }
 }
