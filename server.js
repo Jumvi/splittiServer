@@ -5,34 +5,40 @@ const bodyParser = require("body-parser");
 const twilio = require("twilio");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // Permet à tout domaine de faire des requêtes
+  })
+);
 app.use(bodyParser.json());
 
-const TEST_MODE = process.env.TEST_MODE === 'true';
+const TEST_MODE = process.env.TEST_MODE === "true";
 
-const client = TEST_MODE ? null : new twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
+const client = TEST_MODE
+  ? null
+  : new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 // Route pour recevoir la commande
 app.post("/api/commandes/nouvelle-commande", async (req, res) => {
   try {
+    // Récupérer directement les données envoyées par le client
     const { nom, telephone, adresse, commande } = req.body;
 
+    // Si tu veux tester en mode test
     if (TEST_MODE) {
-      // Log messages instead of sending them
-      console.log('\n=== TEST MODE: Messages that would be sent ===');
-      console.log('Message to Admin:');
+      console.log("\n=== TEST MODE: Messages that would be sent ===");
+      console.log("Message to Admin:");
       console.log(`📢 Nouvelle commande reçue :
 Nom: ${nom}
 Téléphone: ${telephone}
 Adresse: ${adresse}
 Commande: ${commande}`);
-      
-      console.log('\nMessage to Customer:');
-      console.log(`✅ Bonjour ${nom}, votre commande a été bien reçue ! 📦 Nous vous contacterons bientôt. Merci !`);
-      
+
+      console.log("\nMessage to Customer:");
+      console.log(
+        `✅ Bonjour ${nom}, votre commande a été bien reçue ! 📦 Nous vous contacterons bientôt. Merci !`
+      );
+
       res.json({ success: true, message: "Commande reçue en mode test !" });
       return;
     }
